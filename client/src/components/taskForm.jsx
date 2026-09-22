@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TaskForm() {
+function TaskForm({ onTaskAdded }) {
   const [title, setTitle] = useState("");
 
   async function handleAdd() {
@@ -15,6 +15,7 @@ function TaskForm() {
     });
 
     const data = await response.json();
+    onTaskAdded(data);
 
     console.log(data);
 
