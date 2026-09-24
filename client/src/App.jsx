@@ -26,6 +26,12 @@ function App() {
     );
 
     const updatedTask = await response.json();
+
+    setTasks((previousTasks) =>
+      previousTasks.map((task) =>
+        task._id === updatedTask._id ? updatedTask : task,
+      ),
+    );
   }
 
   useEffect(() => {
